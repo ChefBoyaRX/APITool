@@ -58,7 +58,7 @@ func (c *APIClient) FetchData() ([]Series, []byte, error) {
 	// Modify the series and year data here if needed
 	series1 := "CUUR0000SA0"
 	series2 := "CES0500000003"
-	startYear := "2012"
+	startYear := "1997"
 	endYear := "2022"
 
 	// Create the payload data

@@ -97,29 +97,29 @@ func lineMulti(apiData []Series, data []Data) *charts.Line {
 		xData = append(xData, opts.LineData{Value: year})
 	}
 
-	cuData := generateLineItems(apiData[0].Data)
-	var cuSeriesData []opts.LineData
-	for _, data := range cuData {
+	s1Data := generateLineItems(apiData[0].Data)
+	var s1SeriesData []opts.LineData
+	for _, data := range s1Data {
 		value, err := strconv.ParseFloat(data.Value, 64)
 		if err != nil {
 			panic(err)
 		}
-		cuSeriesData = append(cuSeriesData, opts.LineData{Value: value})
+		s1SeriesData = append(s1SeriesData, opts.LineData{Value: value})
 	}
 
-	ceData := generateLineItems(apiData[1].Data)
-	var ceSeriesData []opts.LineData
-	for _, data := range ceData {
+	s2Data := generateLineItems(apiData[1].Data)
+	var s2SeriesData []opts.LineData
+	for _, data := range s2Data {
 		value, err := strconv.ParseFloat(data.Value, 64)
 		if err != nil {
 			panic(err)
 		}
-		ceSeriesData = append(ceSeriesData, opts.LineData{Value: value})
+		s2SeriesData = append(s2SeriesData, opts.LineData{Value: value})
 	}
 
 	line.SetXAxis(xData).
-		AddSeries("CUUR0000SA0", cuSeriesData).
-		AddSeries("CES0500000003", ceSeriesData)
+		AddSeries("CUUR0000SA0", s1SeriesData).
+		AddSeries("CES0500000003", s2SeriesData)
 	return line
 }
 
